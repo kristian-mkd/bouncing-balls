@@ -8,11 +8,10 @@
  * All code is owned by its respective author and
  * is made available under the MIT license.
  */
-var numBalls = 0; // Number of balls
-
+var numBalls = 0;
 var balls = [];
 var selectedBall = false;
-var i, j, ball;
+var i, j;
 var topBorder;
 
 function addBall(event) {
@@ -94,23 +93,25 @@ var Ball = function(x, y, r, c) {
 };
 
 var draw = function() {
-  // Clear everything
+  
+  // Clear everything to default color
   background(250, 247, 240);
 
   // Draw balls
   for (i = 0; i < numBalls; i++) {
-    ball = balls[i];
-    fill(ball.c);
-    ellipse(ball.x, ball.y, ball.r * 2, ball.r * 2);
+    let currentBall = balls[i];
+    fill(currentBall.c);
+    ellipse(currentBall.x, currentBall.y, currentBall.r * 2, currentBall.r * 2);
   }
 
   // Calculate acceleration
   for (i = 0; i < numBalls; i++) {
-    if (balls[i] !== selectedBall) {
-      balls[i].dy += gravity;
+    let currentBall = balls[i];
+    if (currentBall !== selectedBall) {
+      currentBall.dy += gravity;
     }
     for (j = i; j < numBalls; j++) {
-      balls[i].collide(balls[j]);
+      currentBall.collide(balls[j]);
     }
   }
 
@@ -134,9 +135,9 @@ var draw = function() {
 
   // Move balls
   for (i = 0; i < numBalls; i++) {
-    ball = balls[i];
-    ball.move();
-    ball.bounce();
+    let currentBall = balls[i];
+    currentBall.move();
+    currentBall.bounce();
   }
 };
 
