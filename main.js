@@ -1,13 +1,13 @@
 /*********************************
- *  Balls can be thrown about and 
- *  softly bounce off one another 
+ *  Balls can be thrown about and
+ *  softly bounce off one another
  **********************************/
 /*
  * Translated to p5js by professorcook.org from
  * www.khanacademy.org/profile/peterwcollingridge/projects
  * All code is owned by its respective author and
  * is made available under the MIT license.
-*/
+ */
 var numBalls = 0; // Number of balls
 
 var balls = [];
@@ -16,19 +16,18 @@ var i, j, ball;
 var topBorder;
 
 function addBall(event) {
-  
-    numBalls++;
-    var r = 30;
-    var x = event.clientX - 15; 
-    var y = event.clientY - topBorder; 
-    var c = color(40, 60, 160, 200);
-    balls.push(new Ball(x, y, r, c));
+  numBalls++;
+  var r = 30;
+  var x = event.clientX - 15;
+  var y = event.clientY - topBorder;
+  var c = color(40, 60, 160, 200);
+  balls.push(new Ball(x, y, r, c));
 }
 
 function setup() {
   createCanvas(canvasWidth, canvasHeight);
   document.getElementById("defaultCanvas0").addEventListener("click", addBall);
-  topBorder =  document.getElementById("defaultCanvas0").getBoundingClientRect().top;
+  topBorder = document.getElementById("defaultCanvas0").getBoundingClientRect().top;
   noStroke();
 }
 
@@ -85,18 +84,16 @@ var Ball = function(x, y, r, c) {
 
     if (dx * dx + dy * dy < dr * dr) {
       var theta = atan2(dy, dx);
-      var force = (dr - sqrt(dx * dx + dy * dy));
+      var force = dr - sqrt(dx * dx + dy * dy);
       this.dx += force * cos(theta);
       that.dx -= force * cos(theta);
       this.dy += force * sin(theta);
       that.dy -= force * sin(theta);
     }
   };
-
 };
 
 var draw = function() {
-
   // Clear everything
   background(250, 247, 240);
 
