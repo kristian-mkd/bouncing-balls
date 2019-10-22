@@ -13,13 +13,14 @@ var numBalls = 0; // Number of balls
 var balls = [];
 var selectedBall = false;
 var i, j, ball;
+var topBorder;
 
 function addBall(event) {
   
     numBalls++;
-    var r= 30;// + Math.round(random() * 35);
-    var x = event.clientX; //r + Math.round(random() * (canvasWidth - 2 * r));
-    var y = event.clientY; //r + Math.round(random() * (canvasWidth - 2 * r));
+    var r = 30;
+    var x = event.clientX - 15; 
+    var y = event.clientY - topBorder; 
     var c = color(40, 60, 160, 200);
     balls.push(new Ball(x, y, r, c));
 }
@@ -27,13 +28,7 @@ function addBall(event) {
 function setup() {
   createCanvas(canvasWidth, canvasHeight);
   document.getElementById("defaultCanvas0").addEventListener("click", addBall);
-  // for (var b = 0; b < numBalls; b++) {
-  //   var r = 5 + Math.round(random() * 35);
-  //   var x = r + Math.round(random() * (canvasWidth - 2 * r));
-  //   var y = r + Math.round(random() * (canvasWidth - 2 * r));
-  //   var c = color(40, 60, 160, 200);
-  //   balls.push(new Ball(x, y, r, c));
-  // }
+  topBorder =  document.getElementById("defaultCanvas0").getBoundingClientRect().top;
   noStroke();
 }
 
@@ -44,8 +39,9 @@ var Ball = function(x, y, r, c) {
   this.r = r;
   this.c = c;
 
-  this.dx = 10 * (random() - 0.5);
-  this.dy = 10 * (random() - 0.5);
+  var rnd = Math.floor(Math.random() * 100);
+  this.dx = rnd * (random() - 0.5);
+  this.dy = rnd * (random() - 0.5);
 
   // Move ball based on its velocity
   this.move = function() {
