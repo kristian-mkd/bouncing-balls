@@ -4,7 +4,6 @@ const drag = 0.975; // Air resistance
 const friction = 0.85; // Wall bounciness
 const gravity = 0.9; // Force due to gravity
 
-// 
 const defaultBallRadiusInPixels = 30;
 const canvasWidthInPixels = 700;
 const canvasHeightInPixels = 700;
