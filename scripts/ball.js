@@ -32,8 +32,8 @@ class Ball {
           this.y = this.r;
           this.dy *= -friction;
         }
-        if (this.y > canvasWidthInPixels - this.r) {
-          this.y = canvasWidthInPixels - this.r;
+        if (this.y > canvasHeightInPixels - this.r) {
+          this.y = canvasHeightInPixels - this.r;
           this.dy *= -friction;
         }
       };
