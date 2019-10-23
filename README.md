@@ -1,7 +1,7 @@
 # Bouncing balls
 
 ## Used technologies
-![HTML, JS, CSS](img/html_css_js_logo.png)![p5.js](img/p5js_logo.jpg)
+![HTML, JS, CSS](img/html_css_js_logo.jpg)![p5.js](img/p5js_logo.jpg)
 
 ## Used third party library [p5.js](https://p5js.org/)
  - it is used only for drawing of the balls on the screen
