@@ -1,5 +1,7 @@
 # Bouncing balls
 
+## App is hosted [here](https://kristian-mkd.github.io/bouncing-balls/)
+
 ## Used technologies
 ![HTML, JS, CSS](img/html_css_js_logo.jpg)![p5.js](img/p5js_logo.jpg)
 
@@ -11,3 +13,4 @@
    - [background()](https://p5js.org/reference/#/p5/background) sets the background color of the canvas and to prepare the blank canvas for each new draw iteration
    - [fill()](https://p5js.org/reference/#/p5/fill) sets the color used to fill shapes
    - [elipse()](https://p5js.org/reference/#/p5/ellipse) draws circles on the canvas
+
