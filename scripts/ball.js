@@ -1,56 +1,55 @@
 // Ball object with a position, speed and colour
 class Ball {
 
-    constructor(x, y, r, c) {
+    constructor(x, y, radius, color) {
       this.x = x;
       this.y = y;
-      this.r = r;
-      this.c = c;
-      var rnd = Math.floor(Math.random() * 100);
-      this.dx = rnd * (random() - 0.5);
-      this.dy = rnd * (random() - 0.5);
+      this.radius = radius;
+      this.color = color;
+
+      this.dx = getRandomDirectionAndForce();
+      this.dy = getRandomDirectionAndForce();
   
       // Move ball based on its velocity
       this.move = function () {
-        this.dx *= drag;
-        this.dy *= drag;
+        this.dx *= DRAG;
+        this.dy *= DRAG;
         this.x += this.dx;
         this.y += this.dy;
       };
   
       // Bounce off walls
       this.bounce = function () {
-        if (this.x < this.r) {
-          this.x = this.r;
-          this.dx *= -friction;
+        if (this.x < this.radius) {
+          this.x = this.radius;
+          this.dx *= -FRICTION;
         }
-        if (this.x > canvasWidthInPixels - this.r) {
-          this.x = canvasWidthInPixels - this.r;
-          this.dx *= -friction;
+        if (this.x > CANVAS_WIDTH_IN_PIXELS - this.radius) {
+          this.x = CANVAS_WIDTH_IN_PIXELS - this.radius;
+          this.dx *= -FRICTION;
         }
-        if (this.y < this.r) {
-          this.y = this.r;
-          this.dy *= -friction;
+        if (this.y < this.radius) {
+          this.y = this.radius;
+          this.dy *= -FRICTION;
         }
-        if (this.y > canvasHeightInPixels - this.r) {
-          this.y = canvasHeightInPixels - this.r;
-          this.dy *= -friction;
+        if (this.y > CANVAS_HEIGHT_IN_PIXELS - this.radius) {
+          this.y = CANVAS_HEIGHT_IN_PIXELS - this.radius;
+          this.dy *= -FRICTION;
         }
       };
   
       this.collide = function (that) {
-        var dx = this.x - that.x;
-        var dy = this.y - that.y;
-        var dr = this.r + that.r;
+        let dx = this.x - that.x;
+        let dy = this.y - that.y;
+        let dr = this.radius + that.radius;
         if (dx * dx + dy * dy < dr * dr) {
-          var theta = atan2(dy, dx);
-          var force = dr - sqrt(dx * dx + dy * dy);
+          let theta = atan2(dy, dx);
+          let force = dr - sqrt(dx * dx + dy * dy);
           this.dx += force * cos(theta);
-          that.dx -= force * cos(theta);
           this.dy += force * sin(theta);
           that.dy -= force * sin(theta);
+          that.dx -= force * cos(theta);
         }
       };
-      
     }
   }
