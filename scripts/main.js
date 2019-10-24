@@ -15,7 +15,7 @@ function setup() {
 // Called directly after setup(), 
 // the draw() function continuously executes the lines of code contained inside its block
 function draw() {
-  background(220, 220, 220); // backgorund color of the p5.js canvas
+  background(220, 220, 220); // background color of the p5.js canvas
   drawBalls(balls);
   calculateAcceleration(balls);
   moveBalls(balls);
@@ -27,6 +27,8 @@ function addBall(event) {
   let ballY = event.clientY - canvasTopBorderPositionInPixels;
   let ballColor = getRandomColor(DEFAULT_BALL_COLORS);
   let newBall = new Ball(ballX, ballY, DEFAULT_BALL_RADIUS_IN_PIXELS, ballColor);
+  // FIXME: find better solution
+  document.getElementById("counter").innerHTML = balls.length;
   balls.push(newBall);
 }
 

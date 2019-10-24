@@ -6,6 +6,7 @@ const GRAVITY = 0.9; // Force due to gravity
 
 // used for random speed and direction on ball launch
 const INITIAL_FORCE_UPPER_LIMIT = 100;
+const FORCE_REDUCTION = 0.5;
 
 const DEFAULT_BALL_RADIUS_IN_PIXELS = 30;
 const CANVAS_WIDTH_IN_PIXELS = 700;

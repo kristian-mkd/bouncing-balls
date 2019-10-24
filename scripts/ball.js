@@ -45,6 +45,7 @@ class Ball {
         if (dx * dx + dy * dy < dr * dr) {
           let theta = atan2(dy, dx);
           let force = dr - sqrt(dx * dx + dy * dy);
+          force *= FORCE_REDUCTION;
           this.dx += force * cos(theta);
           this.dy += force * sin(theta);
           that.dy -= force * sin(theta);
