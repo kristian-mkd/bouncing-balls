@@ -14,3 +14,7 @@
    - [fill()](https://p5js.org/reference/#/p5/fill) sets the color used to fill shapes
    - [elipse()](https://p5js.org/reference/#/p5/ellipse) draws circles on the canvas
 
+## Disclamers
+
+- It can be rewritten using Webpack, Babel, ES5, with modern JS, modules, classes Typescript, 
+- global vars should be removed, or encapsulated only for the main state of the app

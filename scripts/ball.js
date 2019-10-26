@@ -1,13 +1,24 @@
-// Ball object with a position, speed and colour
+/**
+ * Ball object with a position, speed and colour.
+ */
 class Ball {
+  /**
+   * Initializes ball object.
+   *
+   * @param {*} x the position on X axis of the ball
+   * @param {*} y the position on Y axis of the ball
+   * @param {*} radius the radius of the ball
+   * @param {*} color the color of the ball
+   * @param {*} upperForceLimit the maximum upper Force limit that can be applied to the ball
+   */
   constructor(x, y, radius, color, upperForceLimit) {
     this.x = x;
     this.y = y;
     this.radius = radius;
     this.color = color;
 
-    this.dx = getRandomDirectionAndForce(upperForceLimit);
-    this.dy = getRandomDirectionAndForce(upperForceLimit);
+    this.dx = getRandomForce(upperForceLimit) * getRandomDirection();
+    this.dy = getRandomForce(upperForceLimit) * getRandomDirection();
 
     // Move ball based on its velocity
     this.move = function(movementDrag) {
@@ -37,19 +48,23 @@ class Ball {
       }
     };
 
+    // calculate the collision force of two impacting balls
     this.collide = function(that, forceReduction) {
       let dx = this.x - that.x;
       let dy = this.y - that.y;
       let dr = this.radius + that.radius;
-      if (dx * dx + dy * dy < dr * dr) {
-        let theta = atan2(dy, dx);
-        let force = dr - sqrt(dx * dx + dy * dy);
-        force *= forceReduction;
-        this.dx += force * cos(theta);
-        this.dy += force * sin(theta);
-        that.dy -= force * sin(theta);
-        that.dx -= force * cos(theta);
+      let areBallsIntersecting = dx * dx + dy * dy < dr * dr;
+      if (!areBallsIntersecting) {
+        return;
       }
+      // balls are intersecting, so calculate collision forces
+      let theta = atan2(dy, dx);
+      let force = dr - sqrt(dx * dx + dy * dy);
+      force *= forceReduction;
+      this.dx += force * cos(theta);
+      this.dy += force * sin(theta);
+      that.dy -= force * sin(theta);
+      that.dx -= force * cos(theta);
     };
   }
 }

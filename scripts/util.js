@@ -10,8 +10,14 @@ function getRandomColor(colors) {
   return color(randomColor[0], randomColor[1], randomColor[2]); // creates p5js color object
 }
 
-function getRandomDirectionAndForce(upperForceLimit) {
-  let randomInitialForce = getRandomNumber(upperForceLimit);
-  let randomDirection = Math.random() - 0.5;
-  return randomInitialForce * randomDirection;
+/**
+ * Gets scalar value for random direction;
+ * @param {*} upperForceLimit
+ */
+function getRandomForce(upperForceLimit) {
+  return getRandomNumber(upperForceLimit);
+}
+
+function getRandomDirection() {
+  return Math.random() - 0.5;
 }
