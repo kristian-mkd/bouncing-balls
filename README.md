@@ -1,6 +1,6 @@
 # Bouncing balls
 
-Bouncing balls is a simple app where users can add balls and see them bouncing around until they came to a rest position.
+Bouncing balls is a simple app where users can add balls and see them bouncing around until they stabilize in a still position.
 
 ## App is hosted [here](https://kristian-mkd.github.io/bouncing-balls/)
 
