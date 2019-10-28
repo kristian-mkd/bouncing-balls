@@ -42,7 +42,8 @@ function addBallHandler(event) {
   let ballPositionOnXAxis = event.clientX;
   // to compensate the height of the heading elements above the canvas
   let ballPositionOnYAxis = event.clientY - canvasTopBorderPositionInPixels;
-  addNewBall(ballPositionOnXAxis, ballPositionOnYAxis, balls);
+  let randomBallColor = getRandomColor(DEFAULT_BALL_COLORS);
+  addNewBall(ballPositionOnXAxis, ballPositionOnYAxis, randomBallColor, balls);
   updateBallCounter();
 }
 

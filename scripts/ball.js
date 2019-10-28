@@ -22,9 +22,9 @@ class Ball {
     this.dy = getRandomForce(upperForceLimit) * getRandomDirection();
 
     // Move ball based on its velocity
-    this.move = function(movementDrag) {
-      this.dx *= movementDrag;
-      this.dy *= movementDrag;
+    this.move = function(drag) {
+      this.dx *= drag;
+      this.dy *= drag;
       this.x += this.dx;
       this.y += this.dy;
     };
@@ -59,13 +59,13 @@ class Ball {
         return;
       }
       // balls are intersecting, so calculate collision forces
-      let theta = atan2(dy, dx);
-      let force = dr - sqrt(dx * dx + dy * dy);
+      let theta = Math.atan2(dy, dx);
+      let force = dr - Math.sqrt(dx * dx + dy * dy);
       force *= forceReduction;
-      this.dx += force * cos(theta);
-      this.dy += force * sin(theta);
-      that.dy -= force * sin(theta);
-      that.dx -= force * cos(theta);
+      this.dx += force * Math.cos(theta);
+      this.dy += force * Math.sin(theta);
+      that.dy -= force * Math.sin(theta);
+      that.dx -= force * Math.cos(theta);
     };
   }
 }

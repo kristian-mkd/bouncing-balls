@@ -4,12 +4,12 @@
  * @param ballPositionOnYAxis the ball position on Y axis
  * @param balls the balls
  */
-function addNewBall(ballPositionOnXAxis, ballPositionOnYAxis, balls) {
+function addNewBall(ballPositionOnXAxis, ballPositionOnYAxis, ballColor, balls) {
   let newBall = new Ball(
     ballPositionOnXAxis,
     ballPositionOnYAxis,
     DEFAULT_BALL_RADIUS_IN_PIXELS,
-    getRandomColor(DEFAULT_BALL_COLORS),
+    ballColor,
     INITIAL_FORCE_UPPER_LIMIT
   );
   balls.push(newBall);
@@ -48,7 +48,7 @@ function calculateAccelerationFromCollisions(balls, forceReduction) {
   for (let i = 0; i < numberOfBalls; i++) {
     let currentBall = balls[i];
     for (let j = i; j < numberOfBalls; j++) {
-      const otherCollidingBall = balls[j];
+      let otherCollidingBall = balls[j];
       currentBall.collide(otherCollidingBall, forceReduction);
     }
   }
