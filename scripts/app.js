@@ -12,14 +12,14 @@ function setup() {
 }
 
 /**
- * Initializes the main HTML elements of the app as the canvas and the ball counter.
+ * Initializes the main HTML elements of the page as the canvas and the ball counter.
  */
 function initializeHTMLElements() {
-  counterElement = document.getElementById("counter");
   createCanvas(CANVAS_WIDTH_IN_PIXELS, CANVAS_HEIGHT_IN_PIXELS);
   let canvas = document.querySelector("canvas");
   canvas.addEventListener("click", addBallHandler);
   canvasTopBorderPositionInPixels = canvas.getBoundingClientRect().top;
+  counterElement = document.getElementById("counter");
 }
 
 /**
@@ -28,8 +28,8 @@ function initializeHTMLElements() {
 function draw() {
   background(CANVAS_BACKGROUND_COLOR[0], CANVAS_BACKGROUND_COLOR[1], CANVAS_BACKGROUND_COLOR[2]);
   drawBalls(balls);
-  calculateAccelerationFromCollisions(balls, FORCE_REDUCTION);
   applyGravityForce(balls, GRAVITY);
+  calculateAccelerationFromCollisions(balls, FORCE_REDUCTION);
   moveBalls(balls, DRAG, CANVAS_WIDTH_IN_PIXELS, CANVAS_HEIGHT_IN_PIXELS, FRICTION);
 }
 

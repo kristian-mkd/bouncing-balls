@@ -15,9 +15,14 @@
    - [elipse()](https://p5js.org/reference/#/p5/ellipse) draws circles on the canvas
 
 ## Tests
- - Jasmine is used to facilitate writing the unit tests
+ - Jasmine is used to as testing framework
+ - There are unit test for the ball addition, movement, collision and gravity force.
 
-## Disclamers
+## Potential improvements
 
-- It can be rewritten using Webpack, Babel, ES5, with modern JS, modules, classes Typescript, 
-- global vars should be removed, or encapsulated only for the main state of the app
+ - can be rewritten using Typescript, using latest JS, so modern features can be used as modules, classes to improve the code quality 
+ - module bundler can be used (Webpack) instead of adding the scripts manually
+ - global vars should be encapsulated and used only for the main state of the app
+ - more unit tests can be added
+ - dynamically resizable canvas to take up whole screen on different devices
+ 

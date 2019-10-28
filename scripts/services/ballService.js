@@ -38,7 +38,7 @@ function drawBall(ball) {
 }
 
 /**
- * Calculates the acceleration gained from impact with other balls
+ * Calculates the acceleration gained from impact with other balls.
  * @param balls the balls
  * @param gravity the gravity
  * @param forceReduction the force reduction
@@ -55,7 +55,7 @@ function calculateAccelerationFromCollisions(balls, forceReduction) {
 }
 
 /**
- * Applies the gravity force on the balls.
+ * Applies gravity force on the balls.
  * @param balls the balls
  * @param gravity the gravity
  */
@@ -73,7 +73,7 @@ function applyGravityForce(balls, gravity) {
  * @param drag the drag
  * @param canvasWidthInPixels the width of the canvas in pixels
  * @param canvasHeightInPixels the height of the canvas in pixels
- * @param friction the function
+ * @param friction the friction
  */
 function moveBalls(balls, drag, canvasWidthInPixels, canvasHeightInPixels, friction) {
   let numberOfBalls = balls.length;

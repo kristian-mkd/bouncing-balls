@@ -20,7 +20,7 @@ describe("Test ball collision when balls are not colliding.", () => {
   it("Expect no additional forces applied to the balls.", () => {
     // given
     let firstBallRadius = ONE;
-    let secondBallRadius = TEN;
+    let secondBallRadius = 5;
 
     let someForceReduction = 0.5;
     let someUpperForceLimit = 100;
