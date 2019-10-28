@@ -1,15 +1,15 @@
 /**
- * Ball object with a position, speed and colour.
+ * Ball object with a position, displacement, radius and colour.
  */
 class Ball {
   /**
    * Initializes ball object.
    *
-   * @param {*} x the position on X axis of the ball
-   * @param {*} y the position on Y axis of the ball
-   * @param {*} radius the radius of the ball
-   * @param {*} color the color of the ball
-   * @param {*} upperForceLimit the maximum upper Force limit that can be applied to the ball
+   * @param x the position on X axis of the ball
+   * @param y the position on Y axis of the ball
+   * @param radius the radius of the ball
+   * @param color the color of the ball
+   * @param upperForceLimit the maximum upper Force limit that can be applied to the ball
    */
   constructor(x, y, radius, color, upperForceLimit) {
     this.x = x;
@@ -17,6 +17,7 @@ class Ball {
     this.radius = radius;
     this.color = color;
 
+    // displacements on both axes
     this.dx = getRandomForce(upperForceLimit) * getRandomDirection();
     this.dy = getRandomForce(upperForceLimit) * getRandomDirection();
 

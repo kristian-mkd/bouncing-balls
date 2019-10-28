@@ -1,5 +1,4 @@
-// GLOBAL VARIABLES
-// used for the state of the app
+// Global variables used for the state of the app
 var balls = [];
 var canvasTopBorderPositionInPixels;
 var counterElement;
@@ -27,15 +26,17 @@ function initializeHTMLElements() {
  * Invoked directly after setup(), continuously executes to draw the balls on the canvas.
  */
 function draw() {
-  background(220, 220, 220); // background color of the p5.js canvas
+  background(CANVAS_BACKGROUND_COLOR[0], CANVAS_BACKGROUND_COLOR[1], CANVAS_BACKGROUND_COLOR[2]);
   drawBalls(balls);
-  calculateAcceleration(balls, GRAVITY, FORCE_REDUCTION);
+  calculateAccelerationFromCollisions(balls, FORCE_REDUCTION);
+  applyGravityForce(balls, GRAVITY);
   moveBalls(balls, DRAG, CANVAS_WIDTH_IN_PIXELS, CANVAS_HEIGHT_IN_PIXELS, FRICTION);
 }
 
 /**
- * Event handler that handles clicks on the canvas to create new balls. 
- * @param event the click event for ball creation 
+ * Event handler that handles clicks on the canvas to create new balls.
+ * Adds new ball in the app and updates the ball counter.
+ * @param event the click event for ball creation
  */
 function addBallHandler(event) {
   let ballPositionOnXAxis = event.clientX;
@@ -46,7 +47,7 @@ function addBallHandler(event) {
 }
 
 /**
- * Event handler that handles clicks on the canvas to create new balls. 
+ * Increments the ball counter when new ball is added in the app.
  */
 function updateBallCounter() {
   counterElement.innerHTML = balls.length;
